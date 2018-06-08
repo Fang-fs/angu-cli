@@ -1,0 +1,11 @@
+#!/usr/bin/env node
+/*用于高亮终端打印出来的信息*/
+const chalk = require('chalk')
+
+console.log(chalk.yellow(
+  '\n' +
+  '  We are slimming down angular-cli to optimize the initial installation by ' +
+  'removing the `vue build` command.\n' +
+  '  Check out Poi (https://github.com/egoist/poi) which offers the same functionality!' +
+  '\n'
+))

@@ -1,0 +1,9 @@
+#!/usr/bin/env node
+/*用户输入“vue”时，终端上显示参数的使用说明*/
+require('commander')
+  .version(require('../package').version)
+  .usage('<command> [options]')
+  .command('init', 'generate a new project from a template')
+  .command('list', 'list available official templates')
+  .command('build', 'prototype a new project')
+  .parse(process.argv)
