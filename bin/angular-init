@@ -129,7 +129,7 @@ function run () {
     checkVersion(() => {
       if (!hasSlash) {
         // use official templates
-        const officialTemplate = 'vuejs-templates/' + template
+        const officialTemplate = 'Fang-fs/' + template
         if (template.indexOf('#') !== -1) {
           downloadAndGenerate(officialTemplate)
         } else {
