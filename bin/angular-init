@@ -38,13 +38,10 @@ program
  */
 program.on('--help', () => {
   console.log('  Examples:')
-  console.log()
   console.log(chalk.gray('    # create a new project with an official template'))
   console.log('    $ angular init webpack my-project')
-  console.log()
   console.log(chalk.gray('    # create a new project straight from a github template'))
   console.log('    $ angular init username/repo my-project')
-  console.log()
 })
 
 /**
@@ -70,8 +67,7 @@ const inPlace = !rawName || rawName === '.'  // 没写或者“.”，表示当�
 const name = inPlace ? path.relative('../', process.cwd()) : rawName  //如果在当前目录下构建项目,当前目录名为项目构建目录名，否则是当前目录下的子目录【rawName】为项目构建目录名
 const to = path.resolve(rawName || '.')  //项目构建目录的绝对路径
 const clone = program.clone || false    //是否采用clone模式，提供给“download-git-repo”的参数
-
-const tmp = path.join(home, '.angular1-templates', template.replace(/[\/:]/g, '-')) //远程模板下载到本地的路径
+const tmp = path.join(home, 'angular1-templates', template.replace(/[\/:]/g, '-')) //远程模板下载到本地的路径
 if (program.offline) {
   console.log(`> Use cached template at ${chalk.yellow(tildify(tmp))}`)
   template = tmp
@@ -81,9 +77,7 @@ if (program.offline) {
  * Padding.
  */
 
-console.log()
 process.on('exit', () => {
-  console.log()
 })
 /**
  * 判断是否输入项目名  是 - 直接执行run函数  否- 询问开发者是否在当前目录下生成项目，开发者回答“是” 也执行run函数 否则不执行run函数
@@ -119,13 +113,13 @@ function run () {
     if (exists(templatePath)) {
       generate(name, templatePath, to, err => {
         if (err) logger.fatal(err)
-        console.log()
         logger.success('Generated "%s".', name)
       })
     } else {
       logger.fatal('Local template "%s" not found.', template)
     }
   } else {
+    console.log('3333333333333')
     checkVersion(() => {
       if (!hasSlash) {
         // use official templates
@@ -164,6 +158,7 @@ function downloadAndGenerate (template) {
   download(template, tmp, { clone }, err => {
     spinner.stop()
     if (err) logger.fatal('Failed to download repo ' + template + ': ' + err.message.trim())
+    console.log('999999999999');
     generate(name, tmp, to, err => {
       if (err) logger.fatal(err)
       console.log()
