@@ -8,10 +8,10 @@ const chalk = require('chalk'); //用于高亮console.log打印出来的信息�
  * Padding.
  */
 
-console.log()
+console.log();
 process.on('exit', () => {
   console.log()
-})
+});
 
 /**
  * List repos.
@@ -23,11 +23,11 @@ request({
     'User-Agent': 'angular1-templates'
   }
 }, (err, res, body) => {
-  if (err) logger.fatal(err)
-  const requestBody = JSON.parse(body)
+  if (err) logger.fatal(err);
+  const requestBody = JSON.parse(body);
   if (Array.isArray(requestBody)) {
-    console.log('  Available official templates:')
-    console.log()
+    console.log('  Available official templates:');
+    console.log();
     requestBody.forEach(repo => {
       console.log(
         '  ' + chalk.yellow('★') +
@@ -37,4 +37,4 @@ request({
   } else {
     console.error(requestBody.message)
   }
-})
+});

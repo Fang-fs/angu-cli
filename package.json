@@ -1,6 +1,6 @@
 {
   "name": "angu-cli",
-  "version": "1.0.4",
+  "version": "1.0.7",
   "description": "cli for rapid web development",
   "scripts": {
     "test": "mocha test/test.js"
